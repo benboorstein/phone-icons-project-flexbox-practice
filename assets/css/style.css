@@ -8,41 +8,59 @@ html, body {
 HEADER
 ****************************************/
 
-/* ul {
-    padding: 0; Q: added here because for some reason there was padding on the left of the "9:45".
+#top-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.left-side-of-top-row {
     display: flex;
 }
 
-li:nth-of-type(1) {
-    align-self: flex-start;
-    margin-right: auto;
+.left-side-of-top-row p {
+    margin: 0;
 }
 
-li:nth-of-type(2) {
-    align-self: flex-start;
-    margin-left: auto;
+ul {
+    display: flex;
+    margin: 0;
+    list-style-type: none;
 }
 
-li:nth-of-type(3) {
-    align-self: center;
-}
-
-input {
-    width: 260px;
-}
-
-::placeholder {
+#middle-row {
     text-align: center;
 }
 
-li:nth-of-type(4) {
-    align-self: flex-end;
-    margin-right: auto;
+input {
+    width: 95%;
+    text-align: center;
 }
 
-li:nth-of-type(5) {
-    align-self: flex-end;
-} */
+#bottom-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.left-side-of-bottom-row {
+    display: flex;
+}
+
+.left-side-of-bottom-row p {
+    margin: 0;
+}
+
+.right-of-bottom-row-ghost-elements { 
+    display: flex;
+    color: white;
+}
+
+.right-of-bottom-row-ghost-elements p {
+    margin: 0;
+}
+
+/*
+From chat w/ Robert: Favorites and News line will be frustrating; only spend 30 mins or so on. ... Result: I couldn't find a solution to centering News while keeping Favorites on the left, so I just made the ghost elements, even though I'm sure this isn't the proper solution.
+*/
 
 /****************************************
 MAIN
@@ -60,6 +78,10 @@ https://source.unsplash.com/{size}x{size}/
 
 An example:
 <img src="https://source.unsplash.com/70x70/" />
+*/
+
+/*
+From our chat: Use Flexbox of course, but will have to wrap, and give each item 25% width or whatever so that it wraps after four icons.
 */
 
 /****************************************

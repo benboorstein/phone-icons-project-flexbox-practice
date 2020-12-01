@@ -8,53 +8,49 @@ html, body {
 HEADER
 ****************************************/
 
-#top-row {
+header #top-row {
     display: flex;
     justify-content: space-between;
 }
 
-.left-side-of-top-row {
+header .left-side-of-top-row {
     display: flex;
 }
 
-.left-side-of-top-row p {
+header .left-side-of-top-row p {
     margin: 0;
 }
 
-ul {
+header ul {
     display: flex;
     margin: 0;
     list-style-type: none;
 }
 
-#middle-row {
+header #middle-row {
     text-align: center;
 }
 
-input {
-    width: 95%;
+header input {
+    width: 95%; /* But he wants me to achieve this without using the "width" property. I tried "padding: 0 41% 0 41%;", but it's problematic because 1) "e" of "name" is not visible and 2) when viewport narrows it cuts off and makes a lateral scroll bar. */
     text-align: center;
 }
 
-#bottom-row {
+header #bottom-row {
     display: flex;
     justify-content: space-between;
 }
 
-.left-side-of-bottom-row {
-    display: flex;
-}
-
-.left-side-of-bottom-row p {
+header .left-side-of-bottom-row p {
     margin: 0;
 }
 
-.right-of-bottom-row-ghost-elements { 
+header .right-of-bottom-row-ghost-elements { 
     display: flex;
     color: white;
 }
 
-.right-of-bottom-row-ghost-elements p {
+header .right-of-bottom-row-ghost-elements p {
     margin: 0;
 }
 
@@ -66,23 +62,33 @@ From chat w/ Robert: Favorites and News line will be frustrating; only spend 30 
 MAIN
 ****************************************/
 
-/* From his email:
-Comments on your main section:
-- Great start!
-- Although it may seem like it's an image and a paragraph in each section, I encourage you to research more HTML elements. There's a specific pairing that may work better here, at least regarding semantics. It's not necessary, though.
+main ul {
+    display: flex;
+    /* QQQ: I think "justify-content" doesn't have any effect here because there's not enough space for it to have any effect (i.e., there's no leftover space), and I think this's fine given that "width: 25%;" on "main li" is the reason there's no leftover space and I need "width: 25%;" in order to get the 12 items to wrap properly (4 for each row). */
+    flex-wrap: wrap;
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
 
-It can be helpful to work with actual images instead of broken ones.
+main li {
+    width: 25%;
+    text-align: center;
+    margin-top: 25px; /* QQQ: This line is here because I can't figure out how to make "align-content" have an effect when put on "main ul". */
+}
 
-There's a free service that you can customize and use in each of your <img src="">:
-https://source.unsplash.com/{size}x{size}/
+figure {
+    margin: 0; 
+}
 
-An example:
-<img src="https://source.unsplash.com/70x70/" />
-*/
+img {
+    width: 40%; /* QQQ: Does having this make it more responsive or less responsive? (Normally he doesn't want widths, but without it, the images stay the same size regardless of viewport size.) */ 
+    border-radius: 5px;
+}
 
-/*
-From our chat: Use Flexbox of course, but will have to wrap, and give each item 25% width or whatever so that it wraps after four icons.
-*/
+figcaption {
+    font-size: 11px; /* QQQ: Better way to do this? */
+}
 
 /****************************************
 FOOTER
@@ -115,10 +121,7 @@ footer li:nth-of-type(1) img:disabled, :nth-of-type(2) img:disabled, :nth-of-typ
 
 
 
-
-
-
-/* KEEP THIS EXACTLY HOW IT IS AS A REFERENCE:
+/* KEEP THIS AS A REFERENCE:
 parent {
     display: flex;    mandatory 
     flex-direction: ;    row (default) | row-reverse | column | column-reverse 

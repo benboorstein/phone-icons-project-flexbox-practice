@@ -64,7 +64,7 @@ MAIN
 
 main ul {
     display: flex;
-    /* QQQ: I think "justify-content" doesn't have any effect here because there's not enough space for it to have any effect (i.e., there's no leftover space), and I think this's fine given that "width: 25%;" on "main li" is the reason there's no leftover space and I need "width: 25%;" in order to get the 12 items to wrap properly (4 for each row). */
+    /* "justify-content" doesn't have any effect here because there's not enough space for it to have any effect (i.e., there's no leftover space), and this is fine given that "width: 25%;" on "main li" is the reason there's no leftover space and I need "width: 25%;" in order to get the 12 items to wrap properly (4 for each row). */
     flex-wrap: wrap;
     padding: 0;
     margin: 0;
@@ -74,7 +74,7 @@ main ul {
 main li {
     width: 25%;
     text-align: center;
-    margin-top: 25px; /* QQQ: This line is here because I can't figure out how to make "align-content" have an effect when put on "main ul". */
+    margin-top: 25px; /* This line is here because I can't figure out how to make "align-content" have an effect when put on "main ul". Robert: "Align-content only has an effect when the flex container is larger than the content inside. In your case, it is likely only as large as the content." In what circumstances would I want to make the flex container larger? */
 }
 
 figure {
@@ -82,12 +82,12 @@ figure {
 }
 
 img {
-    width: 40%; /* QQQ: Does having this make it more responsive or less responsive? (Normally he doesn't want widths, but without it, the images stay the same size regardless of viewport size.) */ 
+    max-width: 100%; /* Robert: "The go-to way to make images responsive is "max-width: 100%;". This ensures the image is never any larger than its parent, and that it scales down appropriately." */
     border-radius: 5px;
 }
 
 figcaption {
-    font-size: 11px; /* QQQ: Better way to do this? */
+    font-size: 11px; /* Better way to do this? Robert: "Is there a better way to adjust the font size of the caption? Possibly. But for now setting a px value is fine." */
 }
 
 /****************************************
@@ -100,10 +100,19 @@ footer ul {
     background: #1a1a1a;
     list-style-type: none;
     padding: 0 0 40px 0;
-    margin-top: 0;
     display: flex;
     justify-content: space-around;
     align-items: flex-start;
+
+    margin-bottom: 0;
+    /*
+    QQQ: I know that the combination of the lines immediately above and below is not how to properly stick the <footer> at the bottom of the page. But the only other solutions of which I'm aware are: 
+    1) extreme negative margins, which are a bad idea, I know, and maybe not even effective in this case
+    2) using Flexbox but having to set "flex-direction" to "column", which is not what I want to do here
+    3) "margin-top: auto;", which doesn't seem to be doing the trick
+    Any quick advice?
+    */
+    margin-top: 172px;
 }
 
 footer img {
@@ -111,11 +120,9 @@ footer img {
     margin-top: 7px;
 }
 
-footer li:nth-of-type(1) img:disabled, :nth-of-type(2) img:disabled, :nth-of-type(3) img:disabled, :nth-of-type(4) img, :nth-of-type(5) img { /* Q: But I'm unable to give a color (I wanted to use #666666) to "disabled"? Instead it's the default blue. */
+footer li:nth-of-type(1) img:disabled, :nth-of-type(2) img:disabled, :nth-of-type(3) img:disabled, :nth-of-type(4) img, :nth-of-type(5) img { /* QQQ: But I'm unable to give a color (I wanted to use #666666) to "disabled"? Instead it's the default blue. */
     color: #6170eb;
 }
-
-
 
 
 

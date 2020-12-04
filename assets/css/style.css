@@ -5,8 +5,8 @@ html, body {
 }
 
 body {
-    display: flex; /********************ADDITION*************************/
-    flex-direction: column; /********************ADDITION*************************/
+    display: flex; /* added to help "stick" footer to bottom of page */
+    flex-direction: column; /* added to help "stick" footer to bottom of page */
 }
 
 /****************************************
@@ -67,6 +67,10 @@ From chat w/ Robert: Favorites and News line will be frustrating; only spend 30 
 MAIN
 ****************************************/
 
+main {
+    flex-grow: 1; /* added to help "stick" footer to bottom of page */
+}
+
 main ul {
     display: flex;
     /* "justify-content" doesn't have any effect here because there's not enough space for it to have any effect (i.e., there's no leftover space), and this is fine given that "width: 25%;" on "main li" is the reason there's no leftover space and I need "width: 25%;" in order to get the 12 items to wrap properly (4 for each row). */
@@ -101,15 +105,11 @@ FOOTER
 
 /* Don't target <footer> and <nav> in CSS; these elements in the HTML are just for semantics. */
 
-footer {
-    margin-top: auto; /********************ADDITION*************************/
-}
-
 footer ul {
     background: #1a1a1a;
     list-style-type: none;
     padding: 0 0 40px 0;
-    margin-bottom: 0; /********************ADDITION*************************/
+    margin-bottom: 0; /* added to help "stick" footer to bottom of page */
     display: flex;
     justify-content: space-around;
     align-items: flex-start;

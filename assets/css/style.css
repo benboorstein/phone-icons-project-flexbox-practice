@@ -4,6 +4,11 @@ html, body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+body {
+    display: flex; /********************ADDITION*************************/
+    flex-direction: column; /********************ADDITION*************************/
+}
+
 /****************************************
 HEADER
 ****************************************/
@@ -96,23 +101,18 @@ FOOTER
 
 /* Don't target <footer> and <nav> in CSS; these elements in the HTML are just for semantics. */
 
+footer {
+    margin-top: auto; /********************ADDITION*************************/
+}
+
 footer ul {
     background: #1a1a1a;
     list-style-type: none;
     padding: 0 0 40px 0;
+    margin-bottom: 0; /********************ADDITION*************************/
     display: flex;
     justify-content: space-around;
     align-items: flex-start;
-
-    margin-bottom: 0;
-    /*
-    QQQ: I know that the combination of the lines immediately above and below is not how to properly stick the <footer> at the bottom of the page. But the only other solutions of which I'm aware are: 
-    1) extreme negative margins, which are a bad idea, I know, and maybe not even effective in this case
-    2) using Flexbox but having to set "flex-direction" to "column", which is not what I want to do here
-    3) "margin-top: auto;", which doesn't seem to be doing the trick
-    Any quick advice?
-    */
-    margin-top: 172px;
 }
 
 footer img {
